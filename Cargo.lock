@@ -44,14 +44,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "jni-sys"
-version = "0.4.0"
-
-[[package]]
 name = "libc"
 version = "0.2.153"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9c198f91728a82281a64e1f4f9eeb25d82cb32a5de251c6bd1b5154d63a8e7bd"
+
+[[package]]
+name = "makepad-android-state"
+version = "0.1.0"
+dependencies = [
+ "makepad-jni-sys",
+]
 
 [[package]]
 name = "makepad-derive-live"
@@ -83,8 +86,8 @@ dependencies = [
  "ab_glyph_rasterizer",
  "makepad-html",
  "makepad-platform",
+ "makepad-rustybuzz",
  "makepad-vector",
- "rustybuzz",
  "sdfer",
  "unicode-bidi",
 ]
@@ -106,6 +109,10 @@ dependencies = [
 
 [[package]]
 name = "makepad-http"
+version = "0.4.0"
+
+[[package]]
+name = "makepad-jni-sys"
 version = "0.4.0"
 
 [[package]]
@@ -177,16 +184,31 @@ version = "0.4.0"
 name = "makepad-platform"
 version = "0.6.0"
 dependencies = [
- "jni-sys",
+ "makepad-android-state",
  "makepad-futures",
  "makepad-futures-legacy",
  "makepad-http",
+ "makepad-jni-sys",
  "makepad-objc-sys",
  "makepad-shader-compiler",
  "makepad-wasm-bridge",
  "makepad-windows",
  "smallvec",
  "windows-targets",
+]
+
+[[package]]
+name = "makepad-rustybuzz"
+version = "0.8.0"
+dependencies = [
+ "bitflags 1.3.2",
+ "bytemuck",
+ "smallvec",
+ "ttf-parser",
+ "unicode-bidi-mirroring",
+ "unicode-ccc",
+ "unicode-properties",
+ "unicode-script",
 ]
 
 [[package]]
@@ -302,21 +324,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
  "getrandom",
-]
-
-[[package]]
-name = "rustybuzz"
-version = "0.8.0"
-source = "git+https://github.com/RazrFalcon/rustybuzz?rev=a0b8aa3#a0b8aa3ed002550cfea1137655d9ab7569964ae5"
-dependencies = [
- "bitflags 1.3.2",
- "bytemuck",
- "smallvec",
- "ttf-parser",
- "unicode-bidi-mirroring",
- "unicode-ccc",
- "unicode-properties",
- "unicode-script",
 ]
 
 [[package]]
